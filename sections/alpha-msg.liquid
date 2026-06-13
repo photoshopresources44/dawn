@@ -1,0 +1,42 @@
+{% comment %} Connect alpha-msg.css style sheet {% endcomment %}
+{{ 'alpha-msg.css' | asset_url | stylesheet_tag }}
+
+<style>
+  /* Your custom styles here */
+  --alpha_message_text: {{ section.settings.alpha_message_heading }};
+  --alpha_message_bg_color: {{ section.settings.alpha_message_bg_color }};
+ --alpha_message_text_color: {{ section.settings.alpha_message_text_color }};
+</style>
+
+
+<div class="alpha-message" style="background-color: {{ section.settings.alpha_message_bg_color }}; color: {{ section.settings.alpha_message_text_color }};">
+  <p>{{ section.settings.alpha_message_heading }}</p>
+  </div>
+
+
+{% schema %}
+{
+  "name": "Alpha Message",
+
+  "settings": [
+    {
+    "type": "text",
+    "id": "alpha_message_heading",
+    "label": "Alpha Message",
+    "default": "This is an alpha message Heading"
+  },
+  {
+    "type": "color",
+    "id": "alpha_message_bg_color",
+    "label": "Choose background color for the alpha message",
+    "default": "#cf0000"
+  },
+    {
+        "type": "color",
+        "id": "alpha_message_text_color",
+        "label": "Choose text color for the alpha message",
+        "default": "#ffffff"
+    }
+]
+}
+{% endschema %}
